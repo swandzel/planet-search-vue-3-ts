@@ -17,6 +17,7 @@ const searchQuery = ref(initialSearch);
 <style scoped lang="scss">
 .search-input {
   background-color: $dark-blue;
+  color: $text-color;
   font-size: 1.5rem;
   width: 100%;
   max-width: 800px;

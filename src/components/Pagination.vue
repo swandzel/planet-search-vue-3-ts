@@ -1,7 +1,19 @@
 <template>
   <div class="pagination">
-    <button class="pagination__button" @click="$emit('prev-page')" :disabled="!hasPrev">Prev</button>
-    <button class="pagination__button" @click="$emit('next-page')" :disabled="!hasNext">Next</button>
+    <button
+      class="pagination__button"
+      @click="$emit('prev-page')"
+      :disabled="!hasPrev"
+    >
+      Prev
+    </button>
+    <button
+      class="pagination__button"
+      @click="$emit('next-page')"
+      :disabled="!hasNext"
+    >
+      Next
+    </button>
   </div>
 </template>
 
