@@ -1,16 +1,27 @@
 <template>
   <div class="planet-card">
     <div class="planet-card__title">{{ planet.name }}</div>
-    <p class="planet-card__detail"><strong>Population:</strong> {{ planet.population }}</p>
-    <p class="planet-card__detail"><strong>Rotation Period:</strong> {{ planet.rotation_period }}</p>
-    <p class="planet-card__detail"><strong>Climate:</strong> {{ planet.climate }}</p>
-    <p class="planet-card__detail"><strong>Gravity:</strong> {{ planet.gravity }}</p>
-    <p class="planet-card__detail"><strong>Created:</strong> {{ new Date(planet.created).toLocaleDateString() }}</p>
+    <p class="planet-card__detail">
+      <strong>Population:</strong> {{ planet.population }}
+    </p>
+    <p class="planet-card__detail">
+      <strong>Rotation Period:</strong> {{ planet.rotation_period }}
+    </p>
+    <p class="planet-card__detail">
+      <strong>Climate:</strong> {{ planet.climate }}
+    </p>
+    <p class="planet-card__detail">
+      <strong>Gravity:</strong> {{ planet.gravity }}
+    </p>
+    <p class="planet-card__detail">
+      <strong>Created:</strong>
+      {{ new Date(planet.created).toLocaleDateString() }}
+    </p>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { Planet } from "../types/planetTypes.ts";
+import { Planet } from "../types/types.ts";
 
 const { planet } = defineProps<{
   planet: Planet;
@@ -51,10 +62,17 @@ const { planet } = defineProps<{
   }
 }
 
+@media (max-width: 600px) {
+  .planet-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
 @media (min-width: 900px) {
   .planet-card {
-    flex: 1 1 30%;
-    max-width: 30%;
+    flex: 1 1 32%;
+    max-width: 32%;
   }
 }
 </style>

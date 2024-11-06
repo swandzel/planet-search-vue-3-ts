@@ -2,18 +2,27 @@
   <div class="sort-options">
     <span class="sort-options__title">Sort by:</span>
     <button
-        v-for="field in fields"
-        :key="field"
-        @click="$emit('update:sort', field)"
-        class="sort-options__button"
+      v-for="{ key, label } in fields"
+      :key="key"
+      @click="$emit('update:sort', key)"
+      class="sort-options__button"
     >
-      {{ field }}
+      {{ label }}
     </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-const fields = ['name', 'population', 'rotation_period', 'climate', 'gravity', 'created']
+import { Field } from "../types/types";
+
+const fields: Field[] = [
+  { key: "name", label: "Name" },
+  { key: "population", label: "Population" },
+  { key: "rotation_period", label: "Rotation Period" },
+  { key: "climate", label: "Climate" },
+  { key: "gravity", label: "Gravity" },
+  { key: "created", label: "Created" },
+];
 </script>
 
 <style scoped lang="scss">

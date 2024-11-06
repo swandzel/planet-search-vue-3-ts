@@ -7,32 +7,44 @@
       <div v-if="!errorMessage">
         <Loading v-if="isLoading" />
         <div class="planet-list__cards">
-          <Planet v-for="planet in sortedPlanets" :key="planet.url" :planet="planet" />
+          <Planet
+            v-for="planet in sortedPlanets"
+            :key="planet.url"
+            :planet="planet"
+          />
         </div>
       </div>
-      <ErrorDisplay v-else  :message="errorMessage" />
+      <ErrorDisplay v-else :message="errorMessage" />
     </div>
 
-    <Pagination v-if="!isLoading && !errorMessage" :hasPrev="!!prev" :hasNext="!!next" @prev-page="prevPage" @next-page="nextPage" />
+    <Pagination
+      v-if="!isLoading && !errorMessage"
+      :hasPrev="!!prev"
+      :hasNext="!!next"
+      @prev-page="prevPage"
+      @next-page="nextPage"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 
-import { useFetchPlanets } from '../hooks/useFetchPlanets';
+import { useFetchPlanets } from "../hooks/useFetchPlanets";
 
-import SearchInput from './SearchInput.vue';
-import SortOptions from './SortOptions.vue';
-import ErrorDisplay from './ErrorDisplay.vue';
-import Planet from './Planet.vue';
-import Pagination from './Pagination.vue';
+import SearchInput from "./SearchInput.vue";
+import SortOptions from "./SortOptions.vue";
+import ErrorDisplay from "./ErrorDisplay.vue";
+import Planet from "./Planet.vue";
+import Pagination from "./Pagination.vue";
 import Loading from "./Loading.vue";
 
-const search = ref('');
+const search = ref("");
 const currentPage = ref(1);
-const sortKey = ref<string>('');
-const sortOrder = ref<'asc' | 'desc'>('asc');
+const sortKey = ref<string>("");
+const sortOrder = ref<SortOrder>(SortOrder.Ascending);
+
+import { PlanetApi, SortOrder } from "../types/types";
 
 const { planets, next, prev, errorMessage, fetchPlanets } = useFetchPlanets();
 
@@ -42,26 +54,32 @@ const handleSearch = (newSearch: string) => {
   fetchPlanets(search.value, currentPage.value);
 };
 
-const sortBy = (key: keyof InstanceType<typeof planets.value[0]>) => {
+const sortBy = (key: keyof PlanetApi) => {
   if (sortKey.value === key) {
-    sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
+    sortOrder.value =
+      sortOrder.value === SortOrder.Ascending
+        ? SortOrder.Descending
+        : SortOrder.Ascending;
   } else {
     sortKey.value = key;
-    sortOrder.value = 'asc';
+    sortOrder.value = SortOrder.Ascending;
   }
 };
 
 const sortedPlanets = computed(() => {
   return planets.value.slice().sort((a, b) => {
-    if (a[sortKey.value] < b[sortKey.value]) return sortOrder.value === 'asc' ? -1 : 1;
-    if (a[sortKey.value] > b[sortKey.value]) return sortOrder.value === 'asc' ? 1 : -1;
+    const key = sortKey.value as keyof PlanetApi;
+    if (a[key] < b[key])
+      return sortOrder.value === SortOrder.Ascending ? -1 : 1;
+    if (a[key] > b[key])
+      return sortOrder.value === SortOrder.Ascending ? 1 : -1;
     return 0;
   });
 });
 
 const isLoading = computed(() => {
-  return sortedPlanets.value.length === 0
-})
+  return sortedPlanets.value.length === 0;
+});
 
 const nextPage = () => {
   if (next.value) {
@@ -99,9 +117,9 @@ fetchPlanets(search.value, currentPage.value);
 
   &__cards {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 16px;
-    justify-content: center;
   }
 }
 </style>

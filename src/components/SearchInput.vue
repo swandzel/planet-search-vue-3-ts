@@ -1,14 +1,14 @@
 <template>
   <input
-      class="search-input"
-      v-model="searchQuery"
-      @input="$emit('update:search', searchQuery)"
-      placeholder="Search planets..."
+    class="search-input"
+    v-model="searchQuery"
+    @input="$emit('update:search', searchQuery)"
+    placeholder="Search planets..."
   />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const { initialSearch } = defineProps<{ initialSearch: string }>();
 const searchQuery = ref(initialSearch);
@@ -19,7 +19,7 @@ const searchQuery = ref(initialSearch);
   background-color: $dark-blue;
   font-size: 1.5rem;
   width: 100%;
-  max-width: 1160px;
+  max-width: 800px;
   border: 1px solid $accent-blue;
   border-radius: 4px;
   transition: border-color 0.3s;
