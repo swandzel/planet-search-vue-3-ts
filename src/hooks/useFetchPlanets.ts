@@ -19,6 +19,7 @@ export function useFetchPlanets(): UseFetchPlanets {
 
     fetchTimeout = setTimeout(async () => {
       try {
+        // in REAL LIFE this should be in .env, but for the purposes of this project I'll leave it here in case you want to quickly run this locally
         const response = await axios.get(
           `https://swapi.dev/api/planets/?search=${search}&page=${page}`
         );
