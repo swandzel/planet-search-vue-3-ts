@@ -50,5 +50,9 @@ const { hasPrev, hasNext } = defineProps<{
       cursor: not-allowed;
     }
   }
+
+  @media (max-width: 600px) {
+    margin: 20px 0 0 0;
+  }
 }
 </style>
