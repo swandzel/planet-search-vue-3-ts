@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Planet } from "../types/types.ts";
+import type { Planet } from "../types/types.ts";
 
 const { planet } = defineProps<{
   planet: Planet;

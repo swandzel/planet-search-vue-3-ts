@@ -44,7 +44,8 @@ const currentPage = ref(1);
 const sortKey = ref<string>("");
 const sortOrder = ref<SortOrder>(SortOrder.Ascending);
 
-import { PlanetApi, SortOrder } from "../types/types";
+import type { PlanetApi } from "../types/types";
+import { SortOrder } from "../types/types";
 
 const { planets, next, prev, errorMessage, fetchPlanets } = useFetchPlanets();
 

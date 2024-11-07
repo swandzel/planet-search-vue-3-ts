@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Field } from "../types/types";
+import type { Field } from "../types/types";
 
 const fields: Field[] = [
   { key: "name", label: "Name" },

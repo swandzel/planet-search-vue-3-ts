@@ -2,8 +2,6 @@
   <footer class="footer">developed by swandzel in Vue3 & Typescript</footer>
 </template>
 
-<script lang="ts" setup></script>
-
 <style scoped lang="scss">
 .footer {
   background-color: $dark-blue;

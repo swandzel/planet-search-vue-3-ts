@@ -7,7 +7,6 @@ export interface Planet {
   climate: string;
   gravity: string;
   created: string;
-  url: string;
 }
 
 export interface PlanetApi extends Planet {
