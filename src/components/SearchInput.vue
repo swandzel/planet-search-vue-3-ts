@@ -18,17 +18,17 @@ const searchQuery = ref(initialSearch);
 .search-input {
   background-color: $dark-blue;
   color: $text-color;
-  font-size: 1.5rem;
-  width: 100%;
-  max-width: 800px;
+  font-size: 1.25rem;
   border: 1px solid $accent-blue;
   border-radius: 4px;
   transition: border-color 0.3s;
+  width: 100%;
+  max-width: 800px;
   padding: 8px;
   margin-bottom: 20px;
 
   &::placeholder {
-    color: rgba(232, 234, 246, 0.6);
+    color: $placeholder-color;
   }
 
   &:focus {

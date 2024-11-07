@@ -11,9 +11,9 @@ const { message } = defineProps<{ message: string }>();
 <style scoped lang="scss">
 .error-display {
   color: $error-color;
+  text-align: center;
   font-size: 1.2rem;
   padding: 15px;
-  text-align: center;
   margin-bottom: 20px;
 }
 </style>

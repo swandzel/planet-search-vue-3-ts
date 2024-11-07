@@ -30,14 +30,14 @@
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 
-import { useFetchPlanets } from "../hooks/useFetchPlanets";
-
 import SearchInput from "./SearchInput.vue";
 import SortOptions from "./SortOptions.vue";
 import ErrorDisplay from "./ErrorDisplay.vue";
 import Planet from "./Planet.vue";
 import Pagination from "./Pagination.vue";
 import Loading from "./Loading.vue";
+
+import { useFetchPlanets } from "../hooks/useFetchPlanets";
 
 const search = ref("");
 const currentPage = ref(1);
@@ -112,7 +112,6 @@ fetchPlanets(search.value, currentPage.value);
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
   }
 
   &__cards {

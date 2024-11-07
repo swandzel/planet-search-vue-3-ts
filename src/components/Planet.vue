@@ -32,25 +32,26 @@ const { planet } = defineProps<{
 .planet-card {
   background-color: $dark-blue;
   text-align: left;
-  padding: 16px;
   transition: transform 0.3s;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
   width: 100%;
   max-width: 300px;
 
   &__title {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
+    font-weight: 800;
   }
 
   &__detail {
-    margin: 0;
     font-size: 0.875rem;
-    margin-bottom: 0.25rem;
+    margin: 0 0 0.25rem 0;
 
     strong {
       color: $text-color-light-blue;
+      font-weight: 600;
     }
   }
 }

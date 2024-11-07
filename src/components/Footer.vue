@@ -1,11 +1,8 @@
 <template>
-  <footer class="footer">
-      developed by swandzel in Vue3 & Typescript
-  </footer>
+  <footer class="footer">developed by swandzel in Vue3 & Typescript</footer>
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style scoped lang="scss">
 .footer {
@@ -16,5 +13,9 @@
   text-align: center;
   padding: 10px;
   width: 100%;
+
+  @media (max-width: 600px) {
+    position: static;
+  }
 }
 </style>

@@ -29,17 +29,18 @@ const fields: Field[] = [
 .sort-options {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
 
   &__title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   &__button {
     background-color: $light-blue;
     color: $text-color;
-    font-size: 16px;
+    font-size: 1rem;
     text-align: center;
     border: none;
     padding: 8px 16px;
@@ -49,6 +50,18 @@ const fields: Field[] = [
 
     &:hover {
       background-color: $accent-blue;
+    }
+  }
+
+  @media (max-width: 600px) {
+    & {
+      overflow-x: auto;
+      gap: 0.5rem;
+    }
+
+    &__button {
+      font-size: 1rem;
+      padding: 6px 12px;
     }
   }
 }
