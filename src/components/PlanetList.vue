@@ -44,7 +44,7 @@ const currentPage = ref(1);
 const sortKey = ref<string>("");
 const sortOrder = ref<SortOrder>(SortOrder.Ascending);
 
-import type { PlanetApi } from "../types/types";
+import type { PlanetApi, Field } from "../types/types";
 import { SortOrder } from "../types/types";
 
 const { planets, next, prev, errorMessage, fetchPlanets } = useFetchPlanets();
@@ -55,7 +55,7 @@ const handleSearch = (newSearch: string) => {
   fetchPlanets(search.value, currentPage.value);
 };
 
-const sortBy = (key: keyof PlanetApi) => {
+const sortBy = (key: keyof Field) => {
   if (sortKey.value === key) {
     sortOrder.value =
       sortOrder.value === SortOrder.Ascending
